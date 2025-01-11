@@ -1,0 +1,46 @@
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/600.css';
+@import '@fontsource/montserrat/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background font-inter text-neutral;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-bold;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 mobile:px-6 tablet:px-8 desktop:px-12;
+  }
+
+  .btn-primary {
+    @apply bg-secondary text-white font-montserrat font-semibold px-6 py-3 rounded-lg 
+           hover:bg-opacity-90 transition-all duration-300 
+           focus:outline-none focus:ring-2 focus:ring-gray-50 focus:ring-opacity-50;
+  }
+
+  .btn-secondary {
+    @apply bg-lime-500 text-white font-montserrat font-semibold px-6 py-3 rounded-lg 
+           hover:bg-opacity-90 transition-all duration-300 
+           focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50;
+  }
+  .btn-alert {
+    @apply bg-red-500 text-white font-montserrat font-semibold px-6 py-3 rounded-lg 
+           hover:bg-red-600 transition-all duration-300 
+           focus:outline-none focus:ring-2 focus:ring-gray-50 focus:ring-opacity-50;
+  }
+}
