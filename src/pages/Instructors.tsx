@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { mockData } from '../data/mockData';
 
-const Instructors = () => {
-  const { instructors } = mockData.pages;
-  const [selectedInstructor, setSelectedInstructor] = useState(null);
+import type { Instructor, Data } from '../data/mockData';
+
+type InstructorModalProps = {
+  data: Pick<Data, 'pages'>['pages']['instructors'];
+}
+const Instructors = ({data} : InstructorModalProps) => {
+  const instructors = data;
+  const [selectedInstructor, setSelectedInstructor] = useState<Instructor | null>(null);
   const [selectedSpecialty, setSelectedSpecialty] = useState('all');
 
   const specialties = Array.from(
@@ -30,7 +34,7 @@ const Instructors = () => {
           </div>
 
           {/* Filter */}
-          <div className="flex justify-center">
+          <div className="flex flex-wrap w-[50%] mx-auto justify-center bg-slate-100 shadow-lg border border-gray-200 p-4 rounded-lg gap-14">
             <select
               value={selectedSpecialty}
               onChange={(e) => setSelectedSpecialty(e.target.value)}
@@ -46,7 +50,7 @@ const Instructors = () => {
           {/* Instructors Grid */}
           <motion.div
             layout
-            className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-8"
+            className="flex flex-row flex-wrap items-center justify-center gap-10"
           >
             {filteredInstructors.map((instructor) => (
               <motion.div
@@ -55,13 +59,13 @@ const Instructors = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+                className="w-[20rem] h-[15rem] lg:w-[30rem] lg:h-[15rem] bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
                 onClick={() => setSelectedInstructor(instructor)}
               >
                 <div
-                  className="h-64 bg-cover bg-center"
+                  className="h-[50%] bg-cover bg-center"
                   style={{
-                    backgroundImage: `url(https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)`
+                    backgroundImage: "url(https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)"
                   }}
                 />
                 <div className="p-6 space-y-4">
@@ -103,6 +107,7 @@ const Instructors = () => {
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-2xl font-bold">{selectedInstructor.name}</h2>
                   <button
+                    type="button"
                     onClick={() => setSelectedInstructor(null)}
                     className="p-2 hover:bg-gray-100 rounded-full"
                   >
@@ -113,7 +118,7 @@ const Instructors = () => {
                   <div
                     className="h-64 bg-cover bg-center rounded-lg"
                     style={{
-                      backgroundImage: `url(https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)`
+                      backgroundImage: "url(https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)"
                     }}
                   />
                   <div className="grid grid-cols-2 gap-4 text-sm">

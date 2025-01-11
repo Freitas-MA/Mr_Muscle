@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { mockData } from "../data/mockData";
+import type { Data } from "../data/mockData";
 
-const Contact = () => {
-	const { contact } = mockData.pages;
+type ContactProps = {
+	data: Pick<Data, 'pages'>['pages']['contact'];
+  };
+
+const Contact = ({data} : ContactProps) => {
+	const contact = data;
 
 	const initialFormState = {
 		name: "",

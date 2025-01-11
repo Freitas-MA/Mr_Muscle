@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
 import { Dumbbell, Users, Clock } from 'lucide-react';
-import { mockData } from '../data/mockData';
+import type { Data } from '../data/mockData';
+
+type HomeProps = {
+  data: Pick<Data, 'pages'>['pages']['home'];
+};
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -16,8 +20,8 @@ const staggerChildren = {
   }
 };
 
-const Home = () => {
-  const { hero, features, stats } = mockData.pages.home;
+const Home = ({data} : HomeProps) => {
+  const { hero, features, stats } = data;
 
   const getIcon = (iconName: string) => {
     switch (iconName) {

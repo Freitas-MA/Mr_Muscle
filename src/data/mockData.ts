@@ -1,3 +1,126 @@
+export type Coordinates = {
+  lat: number;
+  lng: number;
+}
+
+export type OpeningHours = {
+  weekdays: string;
+  weekends: string;
+}
+
+export type Brand = {
+  name: string;
+  slogan: string;
+  logo: string;
+  description: string;
+  founded: string;
+}
+
+export type Contact = {
+  phone: string;
+  email: string;
+  whatsapp: string;
+}
+
+export type SocialMedia = {
+  facebook: string;
+  instagram: string;
+  youtube: string;
+  linkedin: string;
+}
+
+export type Feature = {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export type Stat = {
+  value: string;
+  label: string;
+}
+
+export type Modality = {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  benefits: string[];
+  categories: string[];
+  intensity: string;
+}
+
+export type Instructor = {
+  id: number;
+  name: string;
+  image: string;
+  specialties: string[];
+  experience: string;
+  certification: string;
+  description: string;
+  schedule: {
+    [key: string]: string[];
+  };
+}
+
+export type Gym = {
+  id: number;
+  name: string;
+  address: string;
+  coordinates: Coordinates;
+  phone: string;
+  features: string[];
+  openingHours: OpeningHours;
+  images: string[];
+}
+
+export type ScheduleItem = {
+  time: string;
+  classes: string[];
+}
+
+export type Location = {
+  id: number;
+  name: string;
+  address: string;
+  phone: string;
+  email: string;
+}
+
+export type Data = {
+  general: {
+    brand: Brand;
+    contact: Contact;
+    socialMedia: SocialMedia;
+  };
+  pages: {
+    home: {
+      hero: {
+        title: string;
+        subtitle: string;
+        cta: string;
+        backgroundImage: string;
+      };
+      features: Feature[];
+      stats: Stat[];
+    };
+    modalities: Modality[];
+    instructors: Instructor[];
+    gyms: Gym[];
+    schedule: {
+      weekdays: ScheduleItem[];
+      weekends: ScheduleItem[];
+    };
+    contact: {
+      locations: Location[];
+      form: {
+        subjects: string[];
+      };
+    };
+  };
+}
+
 export const mockData = {
   "general": {
     "brand": {
