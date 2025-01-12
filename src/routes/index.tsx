@@ -18,27 +18,27 @@ const AppRoutes = (): JSX.Element => {
       <Routes>
         <Route 
           path="/" 
-          element={<Home data={mockData.pages.home as Data['pages']['home']} />} 
+          element={<Home data={mockData.pages.home as unknown as Data['pages']['home']} />} 
         />
         <Route 
           path="/modalidades" 
-          element={<Modalities data={mockData.pages.modalities as Data['pages']['modalities']} />} 
+          element={<Modalities data={mockData.pages.modalities as unknown as Data['pages']['modalities']} />} 
         />
         <Route 
           path="/instrutores" 
-          element={<Instructors data={mockData.pages.instructors as Data['pages']['instructors']} />} 
+          element={<Instructors data={mockData.pages.instructors as unknown as Data['pages']['instructors']} />} 
         />
         <Route 
           path="/ginasios" 
-          element={<Gyms data={mockData.pages.gyms as Data['pages']['gyms']} />} 
+          element={<Gyms data={mockData.pages.gyms as unknown as Data['pages']['gyms']} />} 
         />
         <Route 
           path="/horarios" 
-          element={<Schedule data={mockData.pages.schedule as Data['pages']['schedule']} />} 
+          element={<Schedule data={mockData.pages.schedule as unknown as Data['pages']['schedule']} />} 
         />
         <Route 
           path="/contactos" 
-          element={<Contact data={mockData.pages.contact as Data['pages']['contact']} />} 
+          element={<Contact data={mockData.pages.contact as unknown as Data['pages']['contact']} />} 
         />
       </Routes>
     </Suspense>
