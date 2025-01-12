@@ -11,6 +11,7 @@ const Instructors = React.lazy(() => import('../pages/Instructors'));
 const Gyms = React.lazy(() => import('../pages/Gyms'));
 const Schedule = React.lazy(() => import('../pages/Schedule'));
 const Contact = React.lazy(() => import('../pages/Contact'));
+const PrivacyPolicy = React.lazy(() => import('../pages/PrivacyPolicy'));
 
 const AppRoutes = (): JSX.Element => {
   return (
@@ -39,6 +40,10 @@ const AppRoutes = (): JSX.Element => {
         <Route 
           path="/contactos" 
           element={<Contact data={mockData.pages.contact as unknown as Data['pages']['contact']} />} 
+        />
+        <Route 
+          path="/politica-de-privacidade" 
+          element={<PrivacyPolicy />}
         />
       </Routes>
     </Suspense>

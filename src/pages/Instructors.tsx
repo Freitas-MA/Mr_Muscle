@@ -20,6 +20,16 @@ const Instructors = ({data} : InstructorModalProps) => {
     selectedSpecialty === 'all' || instructor.specialties.includes(selectedSpecialty)
   );
 
+  const dayTranslations: { [key: string]: string } = {
+    'monday': 'Segunda',
+    'tuesday': 'Terça',
+    'wednesday': 'Quarta',
+    'thursday': 'Quinta',
+    'friday': 'Sexta',
+    'saturday': 'Sábado',
+    'sunday': 'Domingo'
+  };
+
   return (
     <div className="py-24">
       <div className="container-custom">
@@ -136,7 +146,7 @@ const Instructors = ({data} : InstructorModalProps) => {
                     <div className="space-y-2">
                       {Object.entries(selectedInstructor.schedule).map(([day, times]) => (
                         <div key={day} className="flex gap-2">
-                          <span className="font-medium w-24">{day}:</span>
+                          <span className="font-medium w-20">{dayTranslations[day]}:</span>
                           <div className="flex flex-wrap gap-2">
                             {times.map(time => (
                               <span
